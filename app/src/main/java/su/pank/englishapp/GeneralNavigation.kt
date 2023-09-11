@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import su.pank.englishapp.screen.Auth
+import su.pank.englishapp.screen.HelloScreen
 
 @Composable
 fun GeneralNavigation() {
@@ -12,7 +13,10 @@ fun GeneralNavigation() {
 
     NavHost(navController = navController, startDestination = "auth"){
         composable("auth"){
-            Auth()
+            Auth(navController)
+        }
+        composable("helloScreen"){
+            HelloScreen()
         }
     }
 }
