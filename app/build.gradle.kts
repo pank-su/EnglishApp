@@ -55,6 +55,7 @@ dependencies {
     implementation ("io.github.jan-tennert.supabase:postgrest-kt:$supabase_version")
     implementation("io.ktor:ktor-client-android:$ktor_version")
     implementation("io.github.jan-tennert.supabase:compose-auth-ui:$supabase_version")
+    implementation("io.github.jan-tennert.supabase:compose-auth:$supabase_version")
     implementation("androidx.navigation:navigation-compose:2.7.2")
 
     implementation("androidx.core:core-ktx:1.9.0")
