@@ -59,6 +59,8 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.2")
     implementation("io.github.jan-tennert.supabase:compose-auth:$supabase_version")
     implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation("com.google.accompanist:accompanist-webview:0.30.1")
+
 
 
 
