@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import su.pank.englishapp.screen.Auth
 import su.pank.englishapp.screen.HelloScreen
+import su.pank.englishapp.screen.MainScreen
 
 @Composable
 fun GeneralNavigation() {
@@ -16,7 +17,10 @@ fun GeneralNavigation() {
             Auth(navController)
         }
         composable("helloScreen"){
-            HelloScreen()
+            HelloScreen(navController)
+        }
+        composable("mainScreen"){
+            MainScreen()
         }
     }
 }

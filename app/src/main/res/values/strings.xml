@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EnglishApp</string>
+    <string name="welcome_hello_screen">Welcome</string>
 </resources>
