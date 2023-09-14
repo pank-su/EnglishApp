@@ -13,6 +13,7 @@ import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.gotrue.GoTrue
 import io.github.jan.supabase.gotrue.user.UserInfo
 import io.github.jan.supabase.postgrest.Postgrest
+import su.pank.englishapp.navs.GeneralNavigation
 import su.pank.englishapp.ui.theme.EnglishAppTheme
 
 val client = createSupabaseClient(

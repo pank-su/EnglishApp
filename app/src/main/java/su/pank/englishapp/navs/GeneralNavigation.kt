@@ -1,4 +1,4 @@
-package su.pank.englishapp
+package su.pank.englishapp.navs
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost

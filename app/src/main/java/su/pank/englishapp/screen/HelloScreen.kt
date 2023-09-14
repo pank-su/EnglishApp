@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
@@ -59,7 +60,8 @@ fun HelloScreen(navController: NavController) {
 
         }
         SubcomposeAsyncImage(
-            model = user!!.identities!![0].identityData["avatar_url"]!!.jsonPrimitive.content,
+            model = (user!!.userMetadata!!["avatar_url"]?.jsonPrimitive?.content
+                ?: "https://w7.pngwing.com/pngs/981/645/png-transparent-default-profile-united-states-computer-icons-desktop-free-high-quality-person-icon-miscellaneous-silhouette-symbol-thumbnail.png"),
             contentDescription = null
         ) {
             val painterState by remember {
@@ -94,19 +96,23 @@ fun HelloScreen(navController: NavController) {
                         withContext(Dispatchers.IO) {
                             delay(200)
                             nameVis = true
-                            delay(1500)
-                            navController.navigate("mainScreen"){
-                                popUpTo(navController.graph.id){
-                                    inclusive = true
-                                }
+                            delay(5000)
+                            withContext(Dispatchers.Main){
+                                navController.navigate("mainScreen") {
+                                    popUpTo(navController.graph.id) {
+                                        inclusive = true
+                                    }
 
+                                }
                             }
+
                         }
                     }
                     AnimatedVisibility(
                         nameVis, enter = expandHorizontally(
                             animationSpec = tween(2000)
-                        ), exit = shrinkHorizontally(animationSpec = tween(2000))
+                        ), exit = shrinkHorizontally(animationSpec = tween(2000)),
+                        modifier = Modifier.padding(top=10.dp)
                     ) {
                         Row(
                             horizontalArrangement = Arrangement.Center,
@@ -115,7 +121,8 @@ fun HelloScreen(navController: NavController) {
                         {
                             Text(stringResource(R.string.welcome_hello_screen) + " ")
                             Text(
-                                user!!.identities!![0].identityData["full_name"]!!.jsonPrimitive.content,
+                                user!!.userMetadata!!["full_name"]?.jsonPrimitive?.content
+                                    ?: "Name",
                                 style = MaterialTheme.typography.titleMedium,
                                 color = MaterialTheme.colorScheme.primary
                             )
