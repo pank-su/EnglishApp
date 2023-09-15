@@ -28,11 +28,12 @@ import coil.compose.rememberAsyncImagePainter
 import kotlinx.serialization.json.jsonPrimitive
 import su.pank.englishapp.R
 import su.pank.englishapp.model.MainScreenDest
+import su.pank.englishapp.screen.Lessons
 import su.pank.englishapp.user
 
 val destinations = listOf(
     MainScreenDest("Уроки", R.drawable.lesson) {
-        Text(text = "Уроки")
+        Lessons()
     },
     MainScreenDest("ИИ", R.drawable.brain) {
         Text(text = "Искуственный интелект")
@@ -91,7 +92,9 @@ fun MainScreenNavigation() {
             Image(
                 painter,
                 contentDescription = null,
-                modifier = Modifier.align(Alignment.TopEnd).padding(10.dp)
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(10.dp)
                     .size(40.dp)
                     .clip(CircleShape)
 
