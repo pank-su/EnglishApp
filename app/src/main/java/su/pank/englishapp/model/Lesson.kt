@@ -1,7 +1,10 @@
 package su.pank.englishapp.model
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonObject
 
+@Serializable
 data class Lesson(
     val get_word_and_translate: JsonObject,
     val id: Int,
