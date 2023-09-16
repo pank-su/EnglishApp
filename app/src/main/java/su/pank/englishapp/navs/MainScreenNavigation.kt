@@ -20,6 +20,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -33,7 +34,7 @@ import su.pank.englishapp.user
 
 val destinations = listOf(
     MainScreenDest("Уроки", R.drawable.lesson) {
-        Lessons()
+        Lessons(it)
     },
     MainScreenDest("ИИ", R.drawable.brain) {
         Text(text = "Искуственный интелект")
@@ -44,7 +45,7 @@ val destinations = listOf(
 )
 
 @Composable
-fun MainScreenNavigation() {
+fun MainScreenNavigation(navControllerGeneral: NavHostController) {
     val navController = rememberNavController()
 
     Scaffold(bottomBar = {
@@ -89,6 +90,18 @@ fun MainScreenNavigation() {
                 model = (user!!.userMetadata!!["avatar_url"]?.jsonPrimitive?.content
                     ?: "https://w7.pngwing.com/pngs/981/645/png-transparent-default-profile-united-states-computer-icons-desktop-free-high-quality-person-icon-miscellaneous-silhouette-symbol-thumbnail.png")
             )
+
+            NavHost(
+                navController = navController,
+                startDestination = destinations.first().name,
+                modifier = Modifier.padding(innerPadding)
+            ) {
+                for (dest in destinations) {
+                    composable(dest.name) {
+                        dest.content(navControllerGeneral)
+                    }
+                }
+            }
             Image(
                 painter,
                 contentDescription = null,
@@ -99,17 +112,6 @@ fun MainScreenNavigation() {
                     .clip(CircleShape)
 
             )
-            NavHost(
-                navController = navController,
-                startDestination = destinations.first().name,
-                modifier = Modifier.padding(innerPadding)
-            ) {
-                for (dest in destinations) {
-                    composable(dest.name) {
-                        dest.content()
-                    }
-                }
-            }
         }
     }
 }

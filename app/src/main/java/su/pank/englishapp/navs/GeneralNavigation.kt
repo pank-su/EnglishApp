@@ -12,15 +12,15 @@ import su.pank.englishapp.screen.MainScreen
 fun GeneralNavigation() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "auth"){
-        composable("auth"){
+    NavHost(navController = navController, startDestination = "auth") {
+        composable("auth") {
             Auth(navController)
         }
-        composable("helloScreen"){
+        composable("helloScreen") {
             HelloScreen(navController)
         }
-        composable("mainScreen"){
-            MainScreen()
+        composable("mainScreen") {
+            MainScreen(navController)
         }
     }
 }

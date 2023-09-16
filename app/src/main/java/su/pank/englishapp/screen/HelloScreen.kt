@@ -97,7 +97,7 @@ fun HelloScreen(navController: NavController) {
                             delay(200)
                             nameVis = true
                             delay(5000)
-                            withContext(Dispatchers.Main){
+                            withContext(Dispatchers.Main) {
                                 navController.navigate("mainScreen") {
                                     popUpTo(navController.graph.id) {
                                         inclusive = true
@@ -112,7 +112,7 @@ fun HelloScreen(navController: NavController) {
                         nameVis, enter = expandHorizontally(
                             animationSpec = tween(2000)
                         ), exit = shrinkHorizontally(animationSpec = tween(2000)),
-                        modifier = Modifier.padding(top=10.dp)
+                        modifier = Modifier.padding(top = 10.dp)
                     ) {
                         Row(
                             horizontalArrangement = Arrangement.Center,

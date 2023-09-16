@@ -46,8 +46,8 @@ fun Auth(navController: NavController) {
                 user = client.gotrue.currentUserOrNull()
                 if (user != null) {
                     println(user)
-                    navController.navigate("helloScreen"){
-                        popUpTo(navController.graph.id){
+                    navController.navigate("helloScreen") {
+                        popUpTo(navController.graph.id) {
                             inclusive = true
                         }
                     }
@@ -58,9 +58,11 @@ fun Auth(navController: NavController) {
         }
     }
     if (state !is SessionStatus.NotAuthenticated) {
-        Box(modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.surface)) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.surface)
+        ) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
     } else
