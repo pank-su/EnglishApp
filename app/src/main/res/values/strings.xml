@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">EnglishApp</string>
     <string name="welcome_hello_screen">Welcome</string>
+    <string name="watch_card">Watch</string>
+    <string name="next_card">Next card</string>
+    <string name="cards_out">This is end</string>
 </resources>

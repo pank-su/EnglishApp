@@ -96,7 +96,7 @@ fun HelloScreen(navController: NavController) {
                         withContext(Dispatchers.IO) {
                             delay(200)
                             nameVis = true
-                            delay(5000)
+                            delay(1000)
                             withContext(Dispatchers.Main) {
                                 navController.navigate("mainScreen") {
                                     popUpTo(navController.graph.id) {
