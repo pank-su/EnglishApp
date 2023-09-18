@@ -53,12 +53,20 @@ android {
 dependencies {
     val supabase_version = "1.3.0"
     val ktor_version = "2.3.4"
-    implementation ("io.github.jan-tennert.supabase:postgrest-kt:$supabase_version")
+
+    implementation(platform("io.github.jan-tennert.supabase:bom:$supabase_version"))
+
+    implementation("io.github.jan-tennert.supabase:postgrest-kt")
+    implementation("io.github.jan-tennert.supabase:compose-auth-ui")
+    implementation("io.github.jan-tennert.supabase:compose-auth")
+    implementation("io.github.jan-tennert.supabase:storage-kt")
+    implementation("io.github.jan-tennert.supabase:realtime-kt")
+    implementation("io.github.jan-tennert.supabase:functions-kt")
+
+    implementation("io.ktor:ktor-client-okhttp:$ktor_version")
+
     implementation("io.ktor:ktor-client-android:$ktor_version")
-    implementation("io.github.jan-tennert.supabase:compose-auth-ui:$supabase_version")
-    implementation("io.github.jan-tennert.supabase:compose-auth:$supabase_version")
     implementation("androidx.navigation:navigation-compose:2.7.2")
-    implementation("io.github.jan-tennert.supabase:compose-auth:$supabase_version")
     implementation("io.coil-kt:coil-compose:2.4.0")
     implementation("com.google.accompanist:accompanist-webview:0.30.1")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")

@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import su.pank.englishapp.screen.Auth
+import su.pank.englishapp.screen.GameScreen
 import su.pank.englishapp.screen.HelloScreen
 import su.pank.englishapp.screen.LessonScreen
 import su.pank.englishapp.screen.MainScreen
@@ -31,7 +32,9 @@ fun GeneralNavigation() {
         ) {
             val lessonDtoId: Int = it.arguments?.getInt("lessonDtoId") ?: 0
             LessonScreen(lesson = lessonDtoId, navController)
-
+        }
+        composable("test"){
+            GameScreen()
         }
     }
 }

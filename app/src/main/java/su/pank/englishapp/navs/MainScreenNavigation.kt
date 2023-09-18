@@ -29,6 +29,7 @@ import coil.compose.rememberAsyncImagePainter
 import kotlinx.serialization.json.jsonPrimitive
 import su.pank.englishapp.R
 import su.pank.englishapp.model.MainScreenDest
+import su.pank.englishapp.screen.GameScreen
 import su.pank.englishapp.screen.Lessons
 import su.pank.englishapp.user
 
@@ -40,7 +41,7 @@ val destinations = listOf(
         Text(text = "Искуственный интелект")
     },
     MainScreenDest("Игра", R.drawable.game) {
-        Text(text = "Игра")
+        GameScreen()
     },
 )
 

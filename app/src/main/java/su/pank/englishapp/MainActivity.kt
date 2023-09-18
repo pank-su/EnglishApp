@@ -13,6 +13,11 @@ import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.gotrue.GoTrue
 import io.github.jan.supabase.gotrue.user.UserInfo
 import io.github.jan.supabase.postgrest.Postgrest
+import io.github.jan.supabase.realtime.Realtime
+import io.ktor.client.engine.okhttp.*
+
+
+
 import su.pank.englishapp.navs.GeneralNavigation
 import su.pank.englishapp.ui.theme.EnglishAppTheme
 
@@ -27,10 +32,15 @@ val client = createSupabaseClient(
         autoSaveToStorage = true
         autoLoadFromStorage = true
     }
+    httpEngine = OkHttpEngine(OkHttpConfig())
     install(ComposeAuth) {
         googleNativeLogin(serverClientId = "645301365787-k93pghhiurjn9onctao1402mv65l64n9.apps.googleusercontent.com")
     }
+    install(Realtime){
+
+    }
 }
+
 
 var user: UserInfo? = null
 
@@ -38,6 +48,8 @@ var user: UserInfo? = null
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         setContent {
             EnglishAppTheme {
                 // A surface container using the 'background' color from the theme
